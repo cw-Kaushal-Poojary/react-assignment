@@ -42,7 +42,7 @@ const Cars = () => {
   const fetchCars = async () => {
     try {
       const response = await fetch(
-        "https://dummyjson.com/c/3151-8062-475b-8f20"
+        "https://stg.carwale.com/api/stocks"
       );
       const data = await response.json();
       setCars(data.stocks);
@@ -87,12 +87,14 @@ const Cars = () => {
         <div className={styles["sort-cars"]}>
           <span>Sort By: </span>
           <select name="cars" id="cars">
-            <option value="volvo">Best Match</option>
+            {/* <option value="volvo">Best Match</option>
             <option value="saab">Price - Low to High</option>
             <option value="mercedes">Price - High to Low</option>
             <option value="audi">Year - Newest to Oldest</option>
             <option value="audi">Km - Low to High</option>
-            <option value="audi">Km - High to Low</option>
+            <option value="audi">Km - High to Low</option> */}
+            <option value="audi">Choose an option</option>
+            <option value="audi">Ratings</option>
           </select>
         </div>
         <div className={styles["card-container"]}>
