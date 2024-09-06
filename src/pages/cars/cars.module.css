@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 body {
   margin: 0;
-  font-family: "Karla", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .cars-container {
@@ -102,6 +103,13 @@ li {
   border-radius: 3px;
 }
 
+/* Remove arrows from input number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 select {
   padding: 10px;
   border: 1px solid #f5f5f5;
@@ -124,7 +132,7 @@ select:focus {
 }
 
 .sort-cars {
-  padding: 15px 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: end;
@@ -133,4 +141,5 @@ select:focus {
   width: 89%;
   margin: 1rem 0 0 1rem;
   gap: 5px;
+  border-radius: 6px;
 }

@@ -4,36 +4,21 @@ import styles from "./Cars.module.css";
 import filterIcon from "../../assets/filter.png";
 import CarCard from "../../components/Car-Card/CarCard";
 import { useEffect, useState } from "react";
+import { CARS_URL } from "../../Constants";
 
 const Cars = () => {
   const fuelOptions = [
-    {
-      id: 1,
-      name: "Petrol",
-    },
-    {
-      id: 2,
-      name: "Diesel",
-    },
-    {
-      id: 3,
-      name: "CNG",
-    },
-    {
-      id: 4,
-      name: "LPG",
-    },
-    {
-      id: 5,
-      name: "Electric",
-    },
-    {
-      id: 6,
-      name: "Hybrid",
-    },
+    { id: 1, name: "Petrol" },
+    { id: 2, name: "Diesel" },
+    { id: 3, name: "CNG" },
+    { id: 4, name: "LPG" },
+    { id: 5, name: "Electric" },
+    { id: 6, name: "Hybrid" },
   ];
 
   const [cars, setCars] = useState([]);
+  const [originalCars, setOriginalCars] = useState([]);
+  const [sortOption, setSortOption] = useState("");
 
   useEffect(() => {
     fetchCars();
@@ -41,17 +26,38 @@ const Cars = () => {
 
   const fetchCars = async () => {
     try {
-      const response = await fetch(
-        "https://stg.carwale.com/api/stocks"
-      );
+      const response = await fetch(CARS_URL);
       const data = await response.json();
       setCars(data.stocks);
+      setOriginalCars(data.stocks);
     } catch (error) {
       console.error(error);
     }
   };
 
-  console.log(cars);
+  const handleSortChange = (event) => {
+    const option = event.target.value;
+    setSortOption(option);
+
+    let sortedCars;
+    switch (option) {
+      case "priceasc":
+        sortedCars = [...cars].sort(
+          (a, b) => Number(a.priceNumeric) - Number(b.priceNumeric)
+        );
+        setCars(sortedCars);
+        break;
+      case "pricedesc":
+        sortedCars = [...cars].sort(
+          (a, b) => Number(b.priceNumeric) - Number(a.priceNumeric)
+        );
+        setCars(sortedCars);
+        break;
+      default:
+        setCars(originalCars);
+    }
+  };
+
   return (
     <div className={styles["cars-container"]}>
       <div className={styles["filter-container"]}>
@@ -67,9 +73,19 @@ const Cars = () => {
         <div className={styles["filter-section"]}>
           <div className={styles["filter-title"]}>Budget (Lakh)</div>
           <div className={styles["filter-budget"]}>
-            <input type="number" placeholder="0" className={styles["input"]} />
+            <input
+              type="number"
+              placeholder="0"
+              className={styles["input"]}
+              defaultValue={0}
+            />
             <span className={styles["dash"]}>-</span>
-            <input type="number" placeholder="21" className={styles["input"]} />
+            <input
+              type="number"
+              placeholder="21"
+              className={styles["input"]}
+              defaultValue={50}
+            />
           </div>
         </div>
         <div className={styles["filter-section"]}>
@@ -86,15 +102,15 @@ const Cars = () => {
       <div className={styles["sort-car-wrap"]}>
         <div className={styles["sort-cars"]}>
           <span>Sort By: </span>
-          <select name="cars" id="cars">
-            {/* <option value="volvo">Best Match</option>
-            <option value="saab">Price - Low to High</option>
-            <option value="mercedes">Price - High to Low</option>
-            <option value="audi">Year - Newest to Oldest</option>
-            <option value="audi">Km - Low to High</option>
-            <option value="audi">Km - High to Low</option> */}
-            <option value="audi">Choose an option</option>
-            <option value="audi">Ratings</option>
+          <select
+            name="cars"
+            id="cars"
+            value={sortOption}
+            onChange={handleSortChange}
+          >
+            <option value="">Choose an option</option>
+            <option value="priceasc">Price- Low to High</option>
+            <option value="pricedesc">Price- High to Low</option>
           </select>
         </div>
         <div className={styles["card-container"]}>

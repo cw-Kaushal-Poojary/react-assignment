@@ -8,10 +8,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://stg.carwale.com',
+        target: 'https://stg.carwale.com/',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
   }

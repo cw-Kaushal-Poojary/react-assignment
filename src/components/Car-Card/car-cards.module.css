@@ -37,6 +37,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 14px;
 }
 
 .btn-wrap {
@@ -65,4 +66,5 @@
 
 .price {
   /* margin: 0; */
+  font-weight: 700;
 }

@@ -17,7 +17,7 @@ const CarCard = ({ car }) => {
           <p className={styles["card-description"]}>
             {car?.kmNumeric}km | {car.fuel} | {car?.areaName}, {car?.cityName}
           </p>
-          <p className={styles["price"]}>Rs 12.5 Lakh</p>
+          <p className={styles["price"]}>Rs {car?.price}</p>
           <div className={styles["btn-wrap"]}>
             <button className={styles["seller-btn"]}>Get Seller Details</button>
           </div>
