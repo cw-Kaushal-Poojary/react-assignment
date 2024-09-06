@@ -8,7 +8,7 @@ const CarCard = ({ car }) => {
         <img
           className={styles["card-image"]}
           src={car?.imageUrl || testCar}
-          alt="blog"
+          alt="car"
           height={100}
           width={100}
         />

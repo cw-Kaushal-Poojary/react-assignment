@@ -5,20 +5,27 @@ import CarCard from "../../components/Car-Card/CarCard";
 import { useEffect, useState } from "react";
 import { CARS_URL } from "../../Constants";
 import Filters from "../../components/Filters/Filters";
+import { useCarContext } from "../../Contexts/CarContext";
 
 const Cars = () => {
-
-  const [cars, setCars] = useState([]);
+  const { filters, sortOption, setSortOption, cars, setCars } = useCarContext();
   const [originalCars, setOriginalCars] = useState([]);
-  const [sortOption, setSortOption] = useState("");
 
   useEffect(() => {
     fetchCars();
-  }, []);
+  }, [filters]);
 
   const fetchCars = async () => {
     try {
-      const response = await fetch(CARS_URL);
+      let url = CARS_URL;
+
+      url += `?budget=${filters.minBudget}-${filters.maxBudget}`;
+
+      if (filters.fuel.length > 0) {
+        url += `&fuel=${filters.fuel.join("+")}`;
+      }
+
+      const response = await fetch(url);
       const data = await response.json();
       setCars(data.stocks);
       setOriginalCars(data.stocks);

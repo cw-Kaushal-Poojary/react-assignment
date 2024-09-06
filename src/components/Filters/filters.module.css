@@ -10,7 +10,7 @@
   background-color: #fff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  height: 100%;
+  height: max-content;
 }
 
 .filter-header {

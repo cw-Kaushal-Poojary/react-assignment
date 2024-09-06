@@ -1,5 +1,7 @@
 import styles from "./filters.module.css";
 import filterIcon from "../../assets/filter.png";
+import { useCarContext } from "../../Contexts/CarContext";
+import { useEffect, useState } from "react";
 
 const Filters = () => {
   const fuelOptions = [
@@ -11,6 +13,49 @@ const Filters = () => {
     { id: 6, name: "Hybrid" },
   ];
 
+  const { filters, setFilters } = useCarContext();
+  const [minBudget, setMinBudget] = useState(filters.minBudget);
+  const [maxBudget, setMaxBudget] = useState(filters.maxBudget);
+  const [selectedFuels, setSelectedFuels] = useState(filters.fuel);
+
+  useEffect(() => {
+    // Update the context when filters change
+    setFilters({
+      minBudget,
+      maxBudget,
+      fuel: selectedFuels,
+    });
+  }, [selectedFuels, setFilters]);
+
+  const handleBudgetChange = () => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      minBudget,
+      maxBudget,
+    }));
+  };
+
+  const handleFuelChange = (fuelId) => {
+    if (selectedFuels.includes(fuelId)) {
+      // The fuel is unchecked so remove it from the selected fuels
+      const fuelsSelected = selectedFuels.filter((fuel) => fuel !== fuelId);
+      setSelectedFuels(fuelsSelected);
+    } else {
+      setSelectedFuels([...selectedFuels, fuelId]);
+    }
+  };
+
+  const handleClearFilters = () => {
+    setMinBudget(0);
+    setMaxBudget(50);
+    setSelectedFuels([]);
+    setFilters({
+      minBudget: 0,
+      maxBudget: 50,
+      fuel: [],
+    });
+  };
+
   return (
     <div className={styles["filter-container"]}>
       <div className={styles["filter-header"]}>
@@ -20,7 +65,9 @@ const Filters = () => {
           </span>
           Filters
         </div>
-        <button className={styles["clear-button"]}>Clear All</button>
+        <button className={styles["clear-button"]} onClick={handleClearFilters}>
+          Clear All
+        </button>
       </div>
       <div className={styles["filter-section"]}>
         <div className={styles["filter-title"]}>Budget (Lakh)</div>
@@ -29,14 +76,18 @@ const Filters = () => {
             type="number"
             placeholder="0"
             className={styles["input"]}
-            defaultValue={0}
+            value={minBudget}
+            onChange={(e) => setMinBudget(e.target.value)}
+            onBlur={handleBudgetChange}
           />
           <span className={styles["dash"]}>-</span>
           <input
             type="number"
             placeholder="21"
             className={styles["input"]}
-            defaultValue={50}
+            value={maxBudget}
+            onChange={(e) => setMaxBudget(e.target.value)}
+            onBlur={handleBudgetChange}
           />
         </div>
       </div>
@@ -45,7 +96,12 @@ const Filters = () => {
         <ul className={styles["fuel-options"]}>
           {fuelOptions?.map((fuelOption) => (
             <li key={fuelOption.id}>
-              <input type="checkbox" /> {fuelOption.name}
+              <input
+                type="checkbox"
+                checked={selectedFuels.includes(fuelOption.id)}
+                onChange={() => handleFuelChange(fuelOption.id)}
+              />
+              {fuelOption.name}
             </li>
           ))}
         </ul>

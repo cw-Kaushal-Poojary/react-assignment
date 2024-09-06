@@ -1,10 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import { CarContextProvider } from "./Contexts/CarContext.jsx";
 // import './index.css'
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <CarContextProvider>
+      <App />
+    </CarContextProvider>
+  </StrictMode>
+);
