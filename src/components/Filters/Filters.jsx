@@ -28,6 +28,10 @@ const Filters = () => {
   }, [selectedFuels, setFilters]);
 
   const handleBudgetChange = () => {
+    if (Number(minBudget) > Number(maxBudget)) {
+      alert("Min budget cannot be greater than max budget");
+      return;
+    }
     setFilters((prevFilters) => ({
       ...prevFilters,
       minBudget,
