@@ -1,7 +1,13 @@
-import styles from "./filters.module.css";
-import filterIcon from "../../assets/filter.png";
-import { useCarContext } from "../../Contexts/CarContext";
 import { useEffect, useState } from "react";
+
+// STYLES //
+import styles from "./filters.module.css";
+
+// ICONS //
+import filterIcon from "../../assets/filter.png";
+
+// CONTEXT //
+import { useCarContext } from "../../Contexts/CarContext";
 
 const Filters = () => {
   const fuelOptions = [

@@ -1,5 +1,7 @@
-import styles from "./car-cards.module.css"; // Import the CSS file
-import testCar from "../../assets/test-car.jpg"; // Import the test car image
+import styles from "./car-cards.module.css";
+
+// ASSETS //
+import testCar from "../../assets/test-car.jpg";
 
 const CarCard = ({ car }) => {
   return (

@@ -1,12 +1,21 @@
+import { useEffect } from "react";
+
+// STYLeS //
 import styles from "./Cars.module.css";
 
-// Import filter image
+// COMPONENTS //
 import CarCard from "../../components/Car-Card/CarCard";
-import { useEffect } from "react";
-import { CARS_URL } from "../../Constants";
 import Filters from "../../components/Filters/Filters";
+
+// CONTEXT //
 import { useCarContext } from "../../Contexts/CarContext";
+
+// UTILS //
 import sortCars from "../../utils/SortHelper";
+import { extractCarDetails } from "../../utils/FormatHelper";
+
+// CONSTANTS //
+import { CARS_URL } from "../../Constants";
 
 const Cars = () => {
   const { filters, sortOption, setSortOption, cars, setCars } = useCarContext();
@@ -19,7 +28,6 @@ const Cars = () => {
     try {
       let url = CARS_URL;
       url += `?budget=${filters.minBudget}-${filters.maxBudget}`;
-      console.log(sortOption);
 
       if (filters.fuel.length > 0) {
         url += `&fuel=${filters.fuel.join("+")}`;
@@ -27,8 +35,9 @@ const Cars = () => {
 
       const response = await fetch(url);
       const data = await response.json();
+      const extractedCarDetails = extractCarDetails(data.stocks);
 
-      const sortedCars = sortCars(data.stocks, sortOption);
+      const sortedCars = sortCars(extractedCarDetails, sortOption);
       setCars(sortedCars);
     } catch (error) {
       console.error(error);
