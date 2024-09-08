@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 
 // STYLES //
@@ -108,10 +109,11 @@ const Filters = () => {
             <li key={fuelOption.id}>
               <input
                 type="checkbox"
+                id={`fuel-${fuelOption.id}`}
                 checked={selectedFuels.includes(fuelOption.id)}
                 onChange={() => handleFuelChange(fuelOption.id)}
               />
-              {fuelOption.name}
+              <label htmlFor={`fuel-${fuelOption.id}`}>{fuelOption.name}</label>
             </li>
           ))}
         </ul>

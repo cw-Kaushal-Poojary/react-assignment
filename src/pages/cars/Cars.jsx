@@ -15,7 +15,7 @@ import sortCars from "../../utils/SortHelper";
 import { extractCarDetails } from "../../utils/FormatHelper";
 
 // CONSTANTS //
-import { CARS_URL } from "../../Constants";
+import { CARS_URL, DUMMY_URL } from "../../Constants";
 
 const Cars = () => {
   const { filters, sortOption, setSortOption, cars, setCars } = useCarContext();
@@ -26,12 +26,13 @@ const Cars = () => {
 
   const fetchCars = async () => {
     try {
-      let url = CARS_URL;
-      url += `?budget=${filters.minBudget}-${filters.maxBudget}`;
+      // let url = CARS_URL;
+      let url = DUMMY_URL;
+      // url += `?budget=${filters.minBudget}-${filters.maxBudget}`;
 
-      if (filters.fuel.length > 0) {
-        url += `&fuel=${filters.fuel.join("+")}`;
-      }
+      // if (filters.fuel.length > 0) {
+      //   url += `&fuel=${filters.fuel.join("+")}`;
+      // }
 
       const response = await fetch(url);
       const data = await response.json();
