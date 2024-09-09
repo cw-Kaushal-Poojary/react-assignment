@@ -23,7 +23,7 @@ describe("Filters component", () => {
 
     // Check if inputs are in the document
     expect(screen.getByPlaceholderText(/0/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/0/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/21/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Petrol/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Diesel/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/CNG/i)).toBeInTheDocument();
@@ -78,6 +78,24 @@ describe("Filters component", () => {
       minBudget: 0,
       maxBudget: 50,
       fuel: [2],
+    });
+  });
+
+  test("clear button resets filters", () => {
+    render(<Filters />);
+
+    // Simulate selecting Petrol checkbox
+    const petrolCheckbox = screen.getByLabelText(/Petrol/i);
+    fireEvent.click(petrolCheckbox);
+
+    // Simulate clearing filters
+    const clearButton = screen.getByText(/Clear All/i);
+    fireEvent.click(clearButton);
+
+    expect(mockSetFilters).toHaveBeenCalledWith({
+      minBudget: 0,
+      maxBudget: 50,
+      fuel: [],
     });
   });
 });
