@@ -10,7 +10,11 @@ import Cars from "../Cars";
 import { useCarContext } from "../../../Contexts/CarContext";
 
 // CONSTANTS //
-import { dummyCars, dummyCarsAscending, dummyCarsDescending } from "../../../Constants";
+import {
+  dummyCars,
+  dummyCarsAscending,
+  dummyCarsDescending,
+} from "../../../Constants";
 
 // Mock CarContext
 jest.mock("../../../Contexts/CarContext");
