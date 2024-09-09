@@ -22,8 +22,8 @@ describe("Filters component", () => {
     render(<Filters />);
 
     // Check if inputs are in the document
-    expect(screen.getByPlaceholderText(/0/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/21/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("0")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("50")).toBeInTheDocument();
     expect(screen.getByLabelText(/Petrol/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Diesel/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/CNG/i)).toBeInTheDocument();
@@ -99,8 +99,8 @@ describe("Filters component", () => {
     });
 
     // Check if the inputs are reset
-    expect(screen.getByPlaceholderText(/0/i)).toHaveValue(0);
-    expect(screen.getByPlaceholderText(/21/i)).toHaveValue(50);
+    expect(screen.getByPlaceholderText("0")).toHaveValue(0);
+    expect(screen.getByPlaceholderText("50")).toHaveValue(50);
 
     // Check if the checkboxes are unchecked
     expect(screen.getByLabelText(/Petrol/i)).not.toBeChecked();
