@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect } from "react";
 
 // STYLeS //
@@ -27,12 +28,12 @@ const Cars = () => {
   const fetchCars = async () => {
     try {
       // let url = CARS_URL;
-      let url = DUMMY_URL;
-      // url += `?budget=${filters.minBudget}-${filters.maxBudget}`;
+      let url = CARS_URL;
+      url += `?budget=${filters.minBudget}-${filters.maxBudget}`;
 
-      // if (filters.fuel.length > 0) {
-      //   url += `&fuel=${filters.fuel.join("+")}`;
-      // }
+      if (filters.fuel.length > 0) {
+        url += `&fuel=${filters.fuel.join("+")}`;
+      }
 
       const response = await fetch(url);
       const data = await response.json();
@@ -61,9 +62,10 @@ const Cars = () => {
           <span>Sort By: </span>
           <select
             name="cars"
-            id="cars"
+            id="sort-cars"
             value={sortOption}
             onChange={handleSortChange}
+            data-testid="sort-cars"
           >
             <option value="">Choose an option</option>
             <option value="priceasc">Price- Low to High</option>
