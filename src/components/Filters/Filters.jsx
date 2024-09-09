@@ -93,7 +93,7 @@ const Filters = () => {
           <span className={styles["dash"]}>-</span>
           <input
             type="number"
-            placeholder="21"
+            placeholder="50"
             className={styles["input"]}
             value={maxBudget}
             onChange={(e) => setMaxBudget(e.target.value)}
