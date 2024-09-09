@@ -61,4 +61,10 @@ describe("Cars Component", () => {
 
     expect(mockSetCars).toHaveBeenCalledWith(dummyCarsDescending);
   });
+
+  // Generate Snapshot
+  test("matches snapshot", () => {
+    const { asFragment } = render(<Cars />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
