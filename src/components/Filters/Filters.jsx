@@ -88,6 +88,7 @@ const Filters = () => {
             placeholder="0"
             className={styles["input"]}
             value={minBudget}
+            data-testid="min-budget"
             onChange={(e) => setMinBudget(e.target.value)}
             onBlur={handleBudgetChange}
           />
@@ -97,6 +98,7 @@ const Filters = () => {
             placeholder="50"
             className={styles["input"]}
             value={maxBudget}
+            data-testid="max-budget"
             onChange={(e) => setMaxBudget(e.target.value)}
             onBlur={handleBudgetChange}
           />

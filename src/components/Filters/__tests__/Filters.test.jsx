@@ -32,21 +32,24 @@ describe("Filters component", () => {
     expect(screen.getByLabelText(/Hybrid/i)).toBeInTheDocument();
   });
 
-  // test("handles min and max budget changes", () => {
-  //   render(<Filters />);
+  test("handles min and max budget changes", () => {
+    render(<Filters />);
 
-  //   // Simulate min budget change
-  //   const minBudgetInput = screen.getByPlaceholderText(/0/i);
-  //   // Enter 5 in the input, and trigger the change event. When the blur event is triggered, the useEffect hook will update the context
-  //   fireEvent.change(minBudgetInput, { target: { value: '5' } });
-  //   fireEvent.blur(minBudgetInput);
+    // Simulate min budget change
+    const minBudgetInput = screen.getByTestId("min-budget");
+    const maxBudgetInput = screen.getByTestId("max-budget");
+    
+    fireEvent.change(minBudgetInput, { target: { value: '5' } });
+    fireEvent.blur(minBudgetInput);
 
-  //   expect(mockSetFilters).toHaveBeenCalledWith({
-  //     minBudget: '5',
-  //     maxBudget: 50,
-  //     fuel: [],
-  //   });
-  // });
+    // check if value is updated
+    expect(minBudgetInput).toHaveValue(5);
+
+    fireEvent.change(maxBudgetInput, { target: { value: '100' } });
+    fireEvent.blur(maxBudgetInput);
+
+    expect(maxBudgetInput).toHaveValue(100);
+  });
 
   test("handles fuel checkbox selection", () => {
     render(<Filters />);
