@@ -41,8 +41,8 @@ select:focus {
   justify-content: end;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
-  width: 89%;
   margin: 1rem 0 0 1rem;
   gap: 5px;
   border-radius: 6px;
+  box-sizing: border-box;
 }
