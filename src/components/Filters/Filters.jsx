@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 
 // STYLES //
@@ -87,6 +88,7 @@ const Filters = () => {
             placeholder="0"
             className={styles["input"]}
             value={minBudget}
+            data-testid="min-budget"
             onChange={(e) => setMinBudget(e.target.value)}
             onBlur={handleBudgetChange}
           />
@@ -96,6 +98,7 @@ const Filters = () => {
             placeholder="50"
             className={styles["input"]}
             value={maxBudget}
+            data-testid="max-budget"
             onChange={(e) => setMaxBudget(e.target.value)}
             onBlur={handleBudgetChange}
           />
@@ -108,10 +111,11 @@ const Filters = () => {
             <li key={fuelOption.id}>
               <input
                 type="checkbox"
+                id={`fuel-${fuelOption.id}`}
                 checked={selectedFuels.includes(fuelOption.id)}
                 onChange={() => handleFuelChange(fuelOption.id)}
               />
-              {fuelOption.name}
+              <label htmlFor={`fuel-${fuelOption.id}`}>{fuelOption.name}</label>
             </li>
           ))}
         </ul>

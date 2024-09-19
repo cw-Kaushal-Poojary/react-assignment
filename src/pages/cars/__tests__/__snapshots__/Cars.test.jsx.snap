@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cars Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <div>
+        <div>
+          <span>
+            <img
+              alt=""
+              height="20"
+              src="test-file-stub"
+              width="20"
+            />
+          </span>
+          Filters
+        </div>
+        <button>
+          Clear All
+        </button>
+      </div>
+      <div>
+        <div>
+          Budget (Lakh)
+        </div>
+        <div>
+          <input
+            data-testid="min-budget"
+            placeholder="0"
+            type="number"
+            value="0"
+          />
+          <span>
+            -
+          </span>
+          <input
+            data-testid="max-budget"
+            placeholder="50"
+            type="number"
+            value="50"
+          />
+        </div>
+      </div>
+      <div>
+        <div>
+          Fuel
+        </div>
+        <ul>
+          <li>
+            <input
+              id="fuel-1"
+              type="checkbox"
+            />
+            <label
+              for="fuel-1"
+            >
+              Petrol
+            </label>
+          </li>
+          <li>
+            <input
+              id="fuel-2"
+              type="checkbox"
+            />
+            <label
+              for="fuel-2"
+            >
+              Diesel
+            </label>
+          </li>
+          <li>
+            <input
+              id="fuel-3"
+              type="checkbox"
+            />
+            <label
+              for="fuel-3"
+            >
+              CNG
+            </label>
+          </li>
+          <li>
+            <input
+              id="fuel-4"
+              type="checkbox"
+            />
+            <label
+              for="fuel-4"
+            >
+              LPG
+            </label>
+          </li>
+          <li>
+            <input
+              id="fuel-5"
+              type="checkbox"
+            />
+            <label
+              for="fuel-5"
+            >
+              Electric
+            </label>
+          </li>
+          <li>
+            <input
+              id="fuel-6"
+              type="checkbox"
+            />
+            <label
+              for="fuel-6"
+            >
+              Hybrid
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div>
+        <span>
+          Sort By: 
+        </span>
+        <select
+          data-testid="sort-cars"
+          id="sort-cars"
+          name="cars"
+        >
+          <option
+            value=""
+          >
+            Choose an option
+          </option>
+          <option
+            value="priceasc"
+          >
+            Price- Low to High
+          </option>
+          <option
+            value="pricedesc"
+          >
+            Price- High to Low
+          </option>
+        </select>
+      </div>
+      <div>
+        <div>
+          <div>
+            <img
+              alt="car"
+              height="100"
+              src="test-image.jpg"
+              width="100"
+            />
+            <div>
+              <h3>
+                Test Car
+              </h3>
+              <p>
+                20000km | Petrol | Test Area, Test City
+              </p>
+              <p>
+                Rs 15 Lakh
+              </p>
+              <div>
+                <button>
+                  Get Seller Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <img
+              alt="car"
+              height="100"
+              src="test-image-2.jpg"
+              width="100"
+            />
+            <div>
+              <h3>
+                Test Car 2
+              </h3>
+              <p>
+                30000km | Petrol | Test Area 2, Test City 2
+              </p>
+              <p>
+                Rs 10 Lakh
+              </p>
+              <div>
+                <button>
+                  Get Seller Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <img
+              alt="car"
+              height="100"
+              src="test-image-3.jpg"
+              width="100"
+            />
+            <div>
+              <h3>
+                Test Car 3
+              </h3>
+              <p>
+                25000km | CNG | Test Area 3, Test City 3
+              </p>
+              <p>
+                Rs 20 Lakh
+              </p>
+              <div>
+                <button>
+                  Get Seller Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

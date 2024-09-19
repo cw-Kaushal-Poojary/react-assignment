@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect } from "react";
 
 // STYLeS //
@@ -15,7 +16,7 @@ import sortCars from "../../utils/SortHelper";
 import { extractCarDetails } from "../../utils/FormatHelper";
 
 // CONSTANTS //
-import { CARS_URL } from "../../Constants";
+import { CARS_URL, DUMMY_URL } from "../../Constants";
 
 const Cars = () => {
   const { filters, sortOption, setSortOption, cars, setCars } = useCarContext();
@@ -26,6 +27,7 @@ const Cars = () => {
 
   const fetchCars = async () => {
     try {
+      // let url = CARS_URL;
       let url = CARS_URL;
       url += `?budget=${filters.minBudget}-${filters.maxBudget}`;
 
@@ -60,9 +62,10 @@ const Cars = () => {
           <span>Sort By: </span>
           <select
             name="cars"
-            id="cars"
+            id="sort-cars"
             value={sortOption}
             onChange={handleSortChange}
+            data-testid="sort-cars"
           >
             <option value="">Choose an option</option>
             <option value="priceasc">Price- Low to High</option>

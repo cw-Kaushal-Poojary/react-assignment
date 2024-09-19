@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CarCard Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <img
+        alt="car"
+        height="100"
+        src="test-image.jpg"
+        width="100"
+      />
+      <div>
+        <h3>
+          Test Car
+        </h3>
+        <p>
+          20000km | Petrol | Test Area, Test City
+        </p>
+        <p>
+          Rs 5 Lakh
+        </p>
+        <div>
+          <button>
+            Get Seller Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

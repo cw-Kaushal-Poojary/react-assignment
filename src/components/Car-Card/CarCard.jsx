@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./car-cards.module.css";
 
 // ASSETS //
@@ -9,7 +10,11 @@ const CarCard = ({ car }) => {
       <div className={styles["card-inner"]}>
         <img
           className={styles["card-image"]}
-          src={car?.imageUrl || testCar}
+          src={car?.imageUrl}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = testCar;
+          }}
           alt="car"
           height={100}
           width={100}
