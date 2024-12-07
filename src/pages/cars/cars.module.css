@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.cars-container {
+  display: flex;
+  padding: 15px 150px;
+  background-color: #f5f5f5;
+  gap: 10px;
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #f5f5f5;
+  border-radius: 3px;
+}
+
+select:focus {
+  outline: none;
+  border: 1px solid #f5f5f5;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: -1rem; */
+}
+
+.sort-car-wrap {
+  flex: 3;
+}
+
+.sort-cars {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  width: 89%;
+  margin: 1rem 0 0 1rem;
+  gap: 5px;
+  border-radius: 6px;
+}
