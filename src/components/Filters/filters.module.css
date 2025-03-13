@@ -1,0 +1,97 @@
+.filter-container {
+  width: 60%;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  top: 30px;
+  left: 150px;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  height: max-content;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 20px;
+  /* margin-bottom: 20px; */
+}
+
+.filter-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filter-icon {
+  /* margin-right: 10px; */
+}
+
+.clear-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 0;
+}
+
+input[type="checkbox"] {
+  outline-offset: 1px; /* spacing between checkbox and outline */
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+li {
+  list-style: none;
+}
+
+.dash {
+  margin: 0 4px;
+}
+
+.clear-button:hover {
+  text-decoration: underline;
+}
+
+.filter-section {
+  /* margin-bottom: 20px; */
+  padding: 10px 10px 20px;
+}
+
+.filter-title {
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.filter-budget {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 50%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Remove arrows from input number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
